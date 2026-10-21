@@ -36,6 +36,12 @@ let transporter = nodemailer.createTransport({
         user:"laisfernanda.03052002@gmail.com",
         pass:"worc sljv aioe fxkv"
     }
+    // ,
+    // tls: {
+    //     secure: false,
+    //     ignoreTLS: true,
+    //     rejectUnauthorized: false,
+    // }
 });
 
 app.post("/", async (req, res) => {
@@ -54,6 +60,7 @@ app.post("/", async (req, res) => {
         res.status(500).send("Não foi possível enviar o e-mail.");
     }
 });
+
 
 const mailOptions = {
     from: "laisfernanda.02052002@gmail.com",
