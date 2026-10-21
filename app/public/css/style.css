@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px 15px;
+    min-height: 100vh;
+    position: relative;
+    background-image: url('/imagem/fundo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+.container {
+    max-width: 550px;
+    margin: auto;
+    padding: 25px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #ffffff;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #f1eff8;
+
+}
+
+input,
+textarea {
+    width: 100%;
+    color: #f1eff8;
+    padding: 12px;
+    background:transparent;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 6px;
+    background: #51258a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+button:hover {
+    background: #581cff;
+}
+
+.erro {
+    border: 2px solid red;
+}
+
+span {
+    color: red;
+    font-weight: 700;
+    display: block;
+    margin-top: 4px;
+}
+
+.sucesso {
+    color: green;
+}

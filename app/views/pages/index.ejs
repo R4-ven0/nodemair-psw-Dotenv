@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Formulário de Contato</title>
+</head>
+<body>
+
+    <%
+        var cssErro = {
+            nome: "",
+            email: "",
+            telefone: "",
+            assunto: "",
+            mensagem: ""
+        };
+
+        var msgErro = {
+            nome: "",
+            email: "",
+            telefone: "",
+            assunto: "",
+            mensagem: ""
+        };
+
+      if (listaErros && listaErros.length > 0) {
+    listaErros.forEach(function(itemErro) {
+        if (cssErro.hasOwnProperty(itemErro.path)) {
+            cssErro[itemErro.path] = "erro";
+            msgErro[itemErro.path] = itemErro.msg;
+        }
+    });
+}
+    %>
+
+    <main class="container">
+        <h1>Entre em contato</h1>
+
+        <form method="POST" action="/">
+
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome"
+                value="<%= campos.nome || '' %>"
+                class="<%= cssErro.nome %>">
+            <span><%= msgErro.nome %></span>
+
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email"
+                value="<%= campos.email || '' %>"
+                class="<%= cssErro.email %>">
+            <span><%= msgErro.email %></span>
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" name="telefone" id="telefone"
+                value="<%= campos.telefone || '' %>"
+                class="<%= cssErro.telefone %>">
+            <span><%= msgErro.telefone %></span>
+
+            <label for="assunto">Assunto:</label>
+            <input type="text" name="assunto" id="assunto"
+                value="<%= campos.assunto || '' %>"
+                class="<%= cssErro.assunto %>">
+            <span><%= msgErro.assunto %></span>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea name="mensagem" id="mensagem"
+                class="<%= cssErro.mensagem %>"><%= campos.mensagem || '' %></textarea>
+            <span><%= msgErro.mensagem %></span>
+
+            <button type="submit">Enviar mensagem</button>
+
+        </form>
+
+        <% if (resultado) { %>
+            <h2><%= resultado %></h2>
+        <% } %>
+    </main>
+
+</body>
+</html>
